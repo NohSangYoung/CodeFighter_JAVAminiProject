@@ -51,7 +51,8 @@ public class CFFightArena {
 		//싸움 시작
 		fightBegin(dto);
 		
-		
+		//싸움끝 DB에서 삭제
+		fdao.out(dto);
 	}
 
 	private void fightBegin(CharacterDTO dto) {

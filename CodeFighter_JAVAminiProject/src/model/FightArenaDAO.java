@@ -127,6 +127,7 @@ public class FightArenaDAO extends DAO{
 			psmt.setInt(1, fdto.getCount());
 			
 			rs = psmt.executeQuery();
+			rs.next();
 			int count = rs.getInt(1);
 			if(count ==2) {
 				result = true;
@@ -159,6 +160,24 @@ public class FightArenaDAO extends DAO{
 		
 		
 		return fenemy;
+	}
+
+	public void out(CharacterDTO dto) {
+		get_Conn();
+		String sql = "DELETE FROM TB_BATTLE WHERE ID_CD=?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+			int row = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			get_Close();
+		}
+		
 	}
 	
 	
