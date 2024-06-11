@@ -5,16 +5,19 @@ import java.util.Scanner;
 import model.CharacterDAO;
 import model.CharacterDTO;
 import view.InitView;
+import view.StatView;
 
 public class CFLobby {
 	Scanner sc = new Scanner(System.in);
 	InitView initV = new InitView();
+	StatView statV = new StatView();
 	CharacterDAO dao = new CharacterDAO();
 
 	public void start(CharacterDTO dto) {
 		//로비시작
 		CFDeongeon cfDeongeon = new CFDeongeon();
 		CFEquipment cfEquipment = new CFEquipment(); 
+		CFFightArena cfFightArena = new CFFightArena();
 		
 		while(true) {
 			System.out.println("//로비메뉴 ");
@@ -35,9 +38,11 @@ public class CFLobby {
 			}else if (choice == 3) {
 				// 스탯확인
 				System.out.println("//스탯확인");
+				statV.showStat(dto);
 			}else if (choice == 4) {
 				// 격투장
 				System.out.println("//격투장");
+				cfFightArena.start(dto);
 			}else if (choice == 5) {
 				// 종료
 				System.out.println("//종료");

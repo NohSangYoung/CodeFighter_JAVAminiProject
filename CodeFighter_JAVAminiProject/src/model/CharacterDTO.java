@@ -43,6 +43,16 @@ public class CharacterDTO {
 
 	
 
+	public CharacterDTO(String id, String name, String job, int hp, int mp, int attack, int defense) {
+		this.id = id;
+		this.name = name;
+		this.job = job;
+		this.hp = hp;
+		this.mp = mp;
+		this.attack = attack;
+		this.defense = defense;
+	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
