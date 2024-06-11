@@ -55,7 +55,7 @@ public class FightArenaDAO extends DAO{
 	public CharacterDTO getEnemy(CharacterDTO dto) {
 		get_Conn();
 		CharacterDTO edto = null;
-		String sql = "select * from TB_BATTLE where id <> ? ";
+		String sql = "select * from TB_BATTLE where id_CD <> ? ";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -66,7 +66,7 @@ public class FightArenaDAO extends DAO{
 			String enemyID = rs.getString(1);
 			psmt.close();
 			
-			sql = "SELECT * FROM TB_CHARACTER where ID=?";
+			sql = "SELECT * FROM TB_CHARACTER where ID_CD=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, enemyID);
 			
@@ -143,7 +143,7 @@ public class FightArenaDAO extends DAO{
 	public FightArenaDTO getEnemy(FightArenaDTO fenemy) {
 		get_Conn();
 		
-		String sql = "SELECT * FROM TB_BATTLE WHERE ID=?";
+		String sql = "SELECT * FROM TB_BATTLE WHERE ID_CD=?";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
